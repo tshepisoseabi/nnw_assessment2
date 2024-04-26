@@ -1,8 +1,12 @@
 package com.addressprocessor;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 public class Address {
     private String id;
+    @JsonDeserialize(using = AddressTypeDeserializer.class)
     private AddressType type;
+    @JsonDeserialize(using = AddressLineDetailsDeserializer.class)
     private AddressLineDetail addressLineDetail;
     private ProvinceOrState provinceOrState;
     private String cityOrTown;

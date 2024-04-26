@@ -79,7 +79,7 @@ public class AddressProcessor {
 
     public static void main(String[] args) {
         try {
-            AddressProcessor processor = new AddressProcessor("addresses.json");
+            AddressProcessor processor = new AddressProcessor("C:/addresses.json");
             processor.prettyPrintAllAddresses();
             System.out.println("Addresses of type '1':");
             processor.prettyPrintAddressesOfType("1");
