@@ -1,5 +1,5 @@
 package com.addressprocessor;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 public class Address {
@@ -14,6 +14,17 @@ public class Address {
     private String postalCode;
     private String suburbOrDistrict;
     private String lastUpdated;
+
+    public Address() {
+    }
+
+    public Address(AddressLineDetail addressLineDetail, String cityOrTown, ProvinceOrState provinceOrState, Country country, String postalCode) {
+        this.addressLineDetail = addressLineDetail;
+        this.cityOrTown = cityOrTown;
+        this.provinceOrState = provinceOrState;
+        this.country = country;
+        this.postalCode = postalCode;
+    }
 
     // Getters and setters
     public String getId() {

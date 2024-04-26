@@ -4,6 +4,15 @@ public class ProvinceOrState {
     private String code;
     private String name;
 
+    public ProvinceOrState() {
+    }
+
+    public ProvinceOrState(String code, String name)
+    {
+        this.code = code;
+        this.name = name;
+    }
+
     public String getCode() {
         return code;
     }
