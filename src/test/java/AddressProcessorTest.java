@@ -13,7 +13,7 @@ public class AddressProcessorTest {
     @BeforeEach
     public void setUp() {
         try {
-            addressProcessor = new AddressProcessor("C:/addresses.json");
+            addressProcessor = new AddressProcessor("/addresses.json");
         } catch (IOException e) {
             e.printStackTrace();
         }
