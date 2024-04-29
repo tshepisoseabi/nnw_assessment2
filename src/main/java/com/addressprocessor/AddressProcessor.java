@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
-import java.io.File;
 import java.io.IOException;
 
 public class AddressProcessor {
@@ -13,7 +12,7 @@ public class AddressProcessor {
     // Constructor to initialize addresses from JSON file
     public AddressProcessor(String jsonFilePath) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        addresses = mapper.readValue(new File(jsonFilePath), new TypeReference<List<Address>>(){});
+        addresses = mapper.readValue(AddressProcessor.class.getResourceAsStream(jsonFilePath), new TypeReference<List<Address>>(){});
     }
 
     // Task a: Pretty print an address
@@ -105,7 +104,7 @@ public class AddressProcessor {
 
     public static void main(String[] args) {
         try {
-            AddressProcessor processor = new AddressProcessor("C:/addresses.json");
+            AddressProcessor processor = new AddressProcessor("/addresses.json");
             processor.prettyPrintAllAddresses();
             System.out.println("Addresses of type '1':");
             processor.prettyPrintAddressesOfType("1");
@@ -113,9 +112,5 @@ public class AddressProcessor {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public Address processAddress(Address address) {
-        return address;
     }
 }
